@@ -1,3 +1,6 @@
-This is the readme file from the github...
+### Deterministic Wallets ###
 
-you should see this update....
+To run a deterministic wallet:
+
+```$node crypto/wallet.js```
+
