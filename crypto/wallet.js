@@ -12,7 +12,7 @@ const Wallet = require("ethereumjs-wallet").default;
 const keccak256 = require("keccak256");
 
 const bip39 = require("bip39");
-const { hdkey } = require("ethereumjs-wallet");
+const {hdkey} = require("ethereumjs-wallet");
 
 
 const getWalletDetails = async() => {
@@ -49,7 +49,7 @@ const getHDWalletDetails = async() => {
     const pubKey  = wallet.getPublicKey();
     const hashedPubKey = keccak256(pubKey).toString('hex');
     const ethAddress = hashedPubKey.substring(24);
-    
+
     console.log(`eth address is: 0x${ethAddress}`);
 }
 
