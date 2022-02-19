@@ -28,10 +28,14 @@ const getWalletDetails = async() => {
     const ethAddress = hashedPubKey.substring(24);
     console.log(`eth address is: 0x${ethAddress}`);
     const privKey = wallet.getPrivateKey();
-
-
 }
 
-getWalletDetails();
+// deterministic wallet
 
-console.log("this is the wallet creation file");
+const getHDWalletDetails = async() => {
+    console.log("making a hd wallet");
+    
+}
+
+//getWalletDetails();
+getHDWalletDetails();
