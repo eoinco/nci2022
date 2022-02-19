@@ -4,11 +4,7 @@
 // using BIP39, BIP44
 
 
-// to generate an ETH address
-// first: an secp256k1 keypair
-// then we take the public key
-// keccak256 hash it
-// drop the first 12 bytes
+
 
 
 // load the dependencies
@@ -18,12 +14,21 @@ const keccak256 = require("keccak256");
 const getWalletDetails = async() => {
     console.log("async function started.")
     
+    // to generate an ETH address
+    // first: an secp256k1 keypair
+    // then we take the public key
+    // keccak256 hash it
+    // drop the first 12 bytes
+
     const wallet = Wallet.generate();
     const pubKey  = wallet.getPublicKey();
-    const privKey = wallet.getPrivateKey();
+    const hashedPubKey = keccak256(pubKey).toString('hex');
+    console.log(`hashed public key is: ${hashedPubKey}`);
 
+    const privKey = wallet.getPrivateKey();
     const hexPubKey = '0x' + pubKey.toString('hex');
     console.log(`public key is: ${hexPubKey}`);
+
 }
 
 getWalletDetails();
