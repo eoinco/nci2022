@@ -17,6 +17,13 @@ const keccak256 = require("keccak256");
 
 const getWalletDetails = async() => {
     console.log("async function started.")
+    
+    const wallet = Wallet.generate();
+    const pubKey  = wallet.getPublicKey();
+    const privKey = wallet.getPrivateKey();
+
+    const hexPubKey = '0x' + pubKey.toString('hex');
+    console.log(`public key is: ${hexPubKey}`);
 }
 
 getWalletDetails();
