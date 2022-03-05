@@ -98,9 +98,11 @@ const transferToken = async(fromAddress, toAddress, amount) => {
     const serializedTx = tx.serialize();
     const raw = '0x' + serializedTx.toString('hex');
 
+    console.log("about to send tx");
     let txResponse = await web3.eth.sendSignedTransaction(raw);
 
-    console.log(`tx sent. response is ${txResponse}`);
+    console.log(`tx sent. block number is ${txResponse.blockNumber}`);
+    console.log(`tx sent. tx hash is ${txResponse.transactionHash}`);   
 }
 
 const getAllContractInfo = async() => {
