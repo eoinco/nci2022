@@ -73,6 +73,10 @@ const getBalance = async(address) => {
     return balance;
 }
 
+const transferToken = async(address, amount) => {
+    
+}
+
 const getAllContractInfo = async() => {
     getName();
     getSymbol();
