@@ -61,10 +61,17 @@ const getDecimals = async() => {
     return decimals;
 }
 
+const getTotalSupply = async() => {
+    let totalsupply = await contract.methods.totalSupply().call();
+    console.log(`totalsupply is ${totalsupply}`);
+    return totalsupply;
+}
+
 const getAllContractInfo = async() => {
     getName();
     getSymbol();
     getDecimals();
+    getTotalSupply()
 }
 
 getAllContractInfo()
