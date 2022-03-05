@@ -1,4 +1,5 @@
-
+let fs = require("fs");
+let contract = require("./contract.js");
 // read in a file of accounts
 // count the number of accounts
 // get the remaining supply belonging to token owner
@@ -6,9 +7,7 @@
 // collect tea and medals
 
 const doDistro = async() => {
-    let fs = require("fs");
-    let contract = require("./contract.js");
-
+    
     let distributionAddresses = fs.readFileSync("./accounts.txt", "utf8").split(",");
 
     console.log(`number of distribution addresses are ${distributionAddresses.length}`);
