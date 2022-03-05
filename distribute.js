@@ -39,7 +39,8 @@ const doDistro = async() => {
 
     for (looper = 0; looper < numberOfAddresses; looper++) {
         console.log(`about to distribute ${distributionAmount} ${symbol} to ${distributionAddresses[looper]}`)
-        let returnValue = await contract.transferToken(distributionAddresses[looper], distributionAmount);
+        
+        let returnValue = await contract.transferToken(ownerAddress, distributionAddresses[looper], distributionAmount);
     }
 }
 
