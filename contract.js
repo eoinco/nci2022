@@ -19,9 +19,9 @@ const Web3 = require("web3");
 
 require('dotenv').config();
 
-infuraToken = process.env.INFURA_TOKEN
-contractAddress = process.env.CONTRACT_ADDRESS
-ownerAddress = process.env.OWNER_ADDRESS
+infuraToken = process.env.INFURA_TOKEN;
+contractAddress = process.env.CONTRACT_ADDRESS;
+ownerAddress = process.env.OWNER_ADDRESS;
 
 console.log(`infura token loaded: ${infuraToken}`);
 
