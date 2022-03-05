@@ -176,9 +176,9 @@ contract ERC20 is Context, IERC20, IERC20Metadata {
      * All two of these values are immutable: they can only be set once during
      * construction.
      */
-    constructor(string memory name_, string memory symbol_) {
-        _name = "TOKEN MCTOKEN FACEEEEE";
-        _symbol = "TOKKK";
+    constructor() {
+        _name = "TOKEN MCTOKEN FACEv1.0";
+        _symbol = "TMTF";
 
         _mint(msg.sender, 1000000000000000000000000);
     }
