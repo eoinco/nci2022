@@ -37,8 +37,8 @@ const doDistro = async() => {
     let numberOfAddresses = distributionAddresses.length;
     let distributionAmount = fivepercentOfBalance.div(numberOfAddresses);
 
-    for (looper =0; looper< numberOfAddresses; looper++) {
-        console.log(`about to distribute ${distributionAmount}${symbol} to ${distributionAddresses[looper]}`)
+    for (looper = 0; looper < numberOfAddresses; looper++) {
+        console.log(`about to distribute ${distributionAmount} ${symbol} to ${distributionAddresses[looper]}`)
         let returnValue = await contract.transferToken(distributionAddresses[looper], distributionAmount);
     }
 }
