@@ -17,4 +17,24 @@ then, we can install all deps by running:
 ```$npm install```
 
 
+### Docker Commands ###
+
+check what docker containers are running
+
+```$docker ps```
+
+check what images I have built
+
+``` $docker image ls ```
+
+remove all docker images/networks etc.
+
+```docker system prune -a -f```
+
+build an image
+
+```$ docker build -t nci/erc20 .```
+
+
+
 
