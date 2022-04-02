@@ -11,3 +11,15 @@
 
 // this is a KEY EXCHANGE
 
+// how does this work?
+
+// alice's public key = G * PrivK(A)
+// bob's public key = G * PrivK(B)
+
+// alice's ecdh SECRET = PrivK(A) * G * PrivK(B)
+// bob's ecdh SECRET = PrivK(B) * G * PrivK(A)
+
+// PrivK(A) * G * PrivK(B) = PrivK(A) * G * PrivK(B)
+
+var sodium = require("sodium-native");
+
