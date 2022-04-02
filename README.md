@@ -35,6 +35,17 @@ build an image
 
 ```$ docker build -t nci/erc20 .```
 
+to kill a running docker container
+
+```$docker kill <container name>```
+
+### Docker Compose ###
+
+to run a docker-compose instance:
+
+```$docker-compose up```
+
+
 
 
 
