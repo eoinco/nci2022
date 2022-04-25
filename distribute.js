@@ -44,4 +44,5 @@ const doDistro = async() => {
     }
 }
 
-doDistro();
+//doDistro();
+module.exports = {doDistro}
