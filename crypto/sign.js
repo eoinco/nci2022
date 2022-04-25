@@ -9,8 +9,15 @@
 
 // use C25519 to sign/verify
 
-
 // create an alice key pair
+var sodium = require('sodium-native');
+
+const pubkeybytes = sodium.crypto_sign_PUBLICKEYBYTES;
+const privkeybytes = sodium.crypto_sign_SECRETKEYBYTES;
+
+
+console.log(`pub key bytes: ${pubkeybytes}`);
+console.log(`secret key bytes: ${privkeybytes}`);
 
 // create a message
 
