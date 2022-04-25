@@ -47,4 +47,34 @@ console.log(`hash of "${message}" is: 0x${messageHash.toString('hex')}`);
 
 // sign with alice private key
 
+// generate a signature (with the private key)
+const aliceSignature = sodium.sodium_malloc(sodium.crypto_sign_BYTES);
+console.log(`signature is ${aliceSignature.length}-bytes long`);
+
+sodium.crypto_sign_detached(aliceSignature, messageHash, alicePrivateSigningKey);
+
+console.log(`alice signature is: 0x${aliceSignature.toString('hex')}`);
+
 // verify with alice pub key
+
+// first create a copy of the verify message and hash it 
+// we'll do this to demo a signature fail
+var verifyMessage = "the woods are dark and deep.";
+var verifyMessageHash = sodium.sodium_malloc(sodium.crypto_hash_sha256_BYTES);
+sodium.crypto_hash_sha256(verifyMessageHash, Buffer.from(verifyMessage));
+
+
+// negative testing with another signingkey
+// const alicPublicSigningKey = sodium.sodium_malloc(pubkeybytes);
+// const alicPrivateSigningKey = sodium.sodium_malloc(privkeybytes);
+
+// sodium.sodium_memzero(alicPublicSigningKey);
+// sodium.sodium_memzero(alicPrivateSigningKey);
+
+// sodium.crypto_sign_keypair(alicPublicSigningKey, alicPrivateSigningKey);
+
+
+// check (verify) the signature
+var bool = sodium.crypto_sign_verify_detached(aliceSignature, verifyMessageHash, alicePublicSigningKey);
+
+console.log(`signature verification status: ${bool}`);
