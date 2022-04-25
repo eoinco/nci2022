@@ -6,3 +6,30 @@ var sodium = require("sodium-native");
 // decrypt the message with the secret
 // hopefully the decrypted message is the same as the original message
 
+const message = "the woods are dark and deep.";
+
+var messageText = sodium.sodium_malloc(message.length);
+var cipherText = sodium.sodium_malloc(message.length);
+
+console.log(`encrypted message is ${message.length}-bytes long`);
+
+// we need a nonce
+var nonce = 0;
+var nonceBuffer = sodium.sodium_malloc(sodium.crypto_stream_chacha20_NONCEBYTES);
+
+console.log(`nonce buffer is: ${nonceBuffer.toString('hex')}`);
+
+nonceBuffer.writeInt32BE(nonce, 0);
+
+console.log(`nonce buffer is ${nonceBuffer.length}-bytes long`);
+
+const encryptionKey = Buffer.from('899ee81f1b85d510a3941b73dcffbea6401c3195f992bb61369e3bbb89c5d17b', 'hex');
+
+sodium.crypto_stream_chacha20_xor(cipherText, Buffer.from(message), nonceBuffer, encryptionKey);
+
+console.log(`cipher text is: ${cipherText.toString('hex')}`);
+
+
+
+
+
