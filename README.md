@@ -35,6 +35,10 @@ build an image
 
 ```$ docker build -t nci/erc20 .```
 
+to run a docker image
+
+```docker run --name nci_erc20 nci/erc20```
+
 to kill a running docker container
 
 ```$docker kill <container name>```
@@ -44,6 +48,25 @@ to kill a running docker container
 to run a docker-compose instance:
 
 ```$docker-compose up```
+
+
+### IPFS instructions ###
+
+```$docker-compose up```
+
+```$docker exec ipfs-host ipfs add -r export/myNFT.txt```
+
+### NFT Instructions ###
+
+1. deploy an ERC721
+
+2. upload the image behind each number to IPFS
+
+3. make sure you have a webpage delivering the metadata behind each number
+
+4. Profit
+
+
 
 
 
