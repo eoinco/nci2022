@@ -27,7 +27,7 @@ console.log(`cipher text is: ${cipherText.toString('hex')}`);
 
 // decrypt the message
 var decryptedMessage = sodium.sodium_malloc(cipherText.length);
-sodium.crypto_stream_chacha20_xor(decryptedMessage, cipherText, bobNonceBuffer, encryptionKey);
+sodium.crypto_stream_chacha20_xor(decryptedMessage, cipherText, nonceBuffer, encryptionKey);
 
 console.log(`decrypted message is: ${decryptedMessage}`);
 
