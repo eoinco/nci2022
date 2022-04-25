@@ -30,10 +30,20 @@ console.log(`alice public key: ${alicePublicSigningKey.toString('hex')}`);
 
 // create a message
 
-const message = "the woods are dark and deep";
+const message = "the woods are dark and deep.";
 
 // hash the message
 
+// create an empty hash
+var messageHash = sodium.sodium_malloc(sodium.crypto_hash_sha256_BYTES);
+
+// convert the message into a buffer
+var msgBuffer = Buffer.from(message);
+
+// hash the message into the empty hash
+sodium.crypto_hash_sha256(messageHash, msgBuffer);
+
+console.log(`hash of "${message}" is: 0x${messageHash.toString('hex')}`);
 
 // sign with alice private key
 
