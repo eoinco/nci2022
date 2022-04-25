@@ -59,9 +59,9 @@ console.log(`alice signature is: 0x${aliceSignature.toString('hex')}`);
 
 // first create a copy of the verify message and hash it 
 // we'll do this to demo a signature fail
-var verifyMessage = "the woods are dark and deep.";
-var verifyMessageHash = sodium.sodium_malloc(sodium.crypto_hash_sha256_BYTES);
-sodium.crypto_hash_sha256(verifyMessageHash, Buffer.from(verifyMessage));
+// var verifyMessage = "the woods are dark and deep.";
+// var verifyMessageHash = sodium.sodium_malloc(sodium.crypto_hash_sha256_BYTES);
+// sodium.crypto_hash_sha256(verifyMessageHash, Buffer.from(verifyMessage));
 
 
 // negative testing with another signingkey
@@ -75,6 +75,6 @@ sodium.crypto_hash_sha256(verifyMessageHash, Buffer.from(verifyMessage));
 
 
 // check (verify) the signature
-var bool = sodium.crypto_sign_verify_detached(aliceSignature, verifyMessageHash, alicePublicSigningKey);
+var bool = sodium.crypto_sign_verify_detached(aliceSignature, messageHash, alicePublicSigningKey);
 
 console.log(`signature verification status: ${bool}`);
