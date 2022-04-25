@@ -1,16 +1,16 @@
 var sodium = require("sodium-native");
 
-// create a message
+
 // get a secret
 // encrypt the message with the secret
 // decrypt the message with the secret
 // hopefully the decrypted message is the same as the original message
 
+// create a message
 const message = "the woods are dark and deep.";
 
-var messageText = sodium.sodium_malloc(message.length);
 var cipherText = sodium.sodium_malloc(message.length);
-console.log(`encrypted message is ${message.length}-bytes long`);
+console.log(`encrypted message will be ${message.length}-bytes long`);
 
 // we need a nonce
 var nonce = 0;
@@ -30,6 +30,19 @@ var decryptedMessage = sodium.sodium_malloc(cipherText.length);
 sodium.crypto_stream_chacha20_xor(decryptedMessage, cipherText, nonceBuffer, encryptionKey);
 
 console.log(`decrypted message is: ${decryptedMessage}`);
+
+// if we wanted to use Perfect Forward Secrecy
+// which is better than reusing the same key again and again
+
+// get an encryption key
+// hash it with 0
+// send a message (using hash(encryption,0) as the key)
+// hash the new key with 1
+// send a message (using hash(new encryption key, 1) as the key)
+// called the double-ratchet algorithm
+
+
+
 
 
 
